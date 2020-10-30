@@ -1,10 +1,10 @@
 import { observer } from "mobx-react";
-import React, { useContext, useState } from "react";
-import { StoreContext } from "..";
+import * as React from "react";
+import { StoreContext } from "../store";
 
 const NewItem: React.FC = () => {
-  const [value, setValue] = useState("");
-  const itemList = useContext(StoreContext);
+  const [value, setValue] = React.useState("");
+  const itemList = React.useContext(StoreContext);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setValue(value);

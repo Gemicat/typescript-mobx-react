@@ -1,9 +1,9 @@
-import { IObservableArray, makeAutoObservable, observable } from "mobx";
+import { IObservableArray, makeAutoObservable } from "mobx";
 import { Item } from "./ItemModel";
 
 export class ItemList {
   constructor(
-    public items: IObservableArray<Item> = observable<Item>([]),
+    public items: Item[] = [],
     public unpackedItemsFilter: string = "",
     public packedItemsFilter: string = ""
   ) {

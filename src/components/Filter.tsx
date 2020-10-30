@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import * as React from "react";
 
 interface Props {
   searchTerm: string;
@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Filter: React.FC<Props> = ({ searchTerm, onChange }) => {
-  const handleChange = useCallback(
+  const handleChange = React.useCallback(
     (event) => {
       const value = event.target.value;
       onChange(value);

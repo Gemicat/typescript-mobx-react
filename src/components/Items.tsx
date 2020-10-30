@@ -1,7 +1,7 @@
-import React from "react";
+import * as React from "react";
 import SingleItem from "./SingleItem";
 import Filter from "./Filter";
-import Item from "../store/ItemModel";
+import { Item } from "../store/ItemModel";
 
 interface Props {
   title: string;
