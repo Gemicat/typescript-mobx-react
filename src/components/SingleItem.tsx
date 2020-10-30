@@ -1,5 +1,5 @@
-import React from "react";
-import Item from "../store/ItemModel";
+import * as React from "react";
+import { Item } from "../store/ItemModel";
 
 interface Props {
   item: Item;

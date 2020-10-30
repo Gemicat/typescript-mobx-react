@@ -1,12 +1,12 @@
-import { makeAutoObservable } from "mobx";
-import Item from "./ItemModel";
+import { IObservableArray, makeAutoObservable } from "mobx";
+import { Item } from "./ItemModel";
 
-export default class ItemStore {
-  public items: Item[] = [];
-  public unpackedItemsFilter: string = "";
-  public packedItemsFilter: string = "";
-
-  constructor() {
+export class ItemList {
+  constructor(
+    public items: Item[] = [],
+    public unpackedItemsFilter: string = "",
+    public packedItemsFilter: string = ""
+  ) {
     makeAutoObservable(this);
   }
 
@@ -43,7 +43,6 @@ export default class ItemStore {
   };
 
   removeItem = (itemToRemove: Item) => {
-    this.items.filter((item) => item !== itemToRemove);
-    console.log(this.items.length);
+    (this.items as IObservableArray<Item>).remove(itemToRemove);
   };
 }

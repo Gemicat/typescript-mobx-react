@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
+import * as React from "react";
 import { observer } from "mobx-react";
 import NewItem from "./NewItem";
 import Items from "./Items";
-import { StoreContext } from "..";
+import { StoreContext } from "../store";
 
 const UnpackedItems = observer(() => {
-  const itemList = useContext(StoreContext);
+  const itemList = React.useContext(StoreContext);
   return <Items title="Unpacked Items" items={itemList.unpackedItems} />;
 });
 
 const PackedItems = observer(() => {
-  const itemList = useContext(StoreContext);
+  const itemList = React.useContext(StoreContext);
   return <Items title="Packed Items" items={itemList.packedItems} />;
 });
 
