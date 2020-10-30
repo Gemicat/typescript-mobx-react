@@ -1,17 +1,15 @@
 import { uid } from "uid/single";
 import { makeAutoObservable } from "mobx";
-import ItemStore from "./ItemStore";
+import { ItemList } from "./ItemList";
 
-export default class Item {
-  public id: string = uid();
-  public list: ItemStore;
-  public value: string = "";
-  public packed: boolean = false;
-
-  constructor(value: string, list: ItemStore) {
+export class Item {
+  constructor(
+    public value: string,
+    public list: ItemList,
+    public packed: boolean = false,
+    public id: string = uid()
+  ) {
     makeAutoObservable(this);
-    this.value = value;
-    this.list = list;
   }
 
   get unpacked() {
