@@ -7,7 +7,9 @@ export class Item {
   public packed: boolean = false;
 
   constructor(public value: string, public list: ItemList) {
-    makeAutoObservable(this);
+    makeAutoObservable(this, {
+      id: false,
+    });
   }
 
   get unpacked() {
