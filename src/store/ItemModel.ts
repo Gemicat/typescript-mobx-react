@@ -3,12 +3,10 @@ import { makeAutoObservable } from "mobx";
 import { ItemList } from "./ItemList";
 
 export class Item {
-  constructor(
-    public value: string,
-    public list: ItemList,
-    public packed: boolean = false,
-    public id: string = uid()
-  ) {
+  public id: string = uid();
+  public packed: boolean = false;
+
+  constructor(public value: string, public list: ItemList) {
     makeAutoObservable(this);
   }
 

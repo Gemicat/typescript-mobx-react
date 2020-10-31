@@ -2,11 +2,10 @@ import { IObservableArray, makeAutoObservable } from "mobx";
 import { Item } from "./ItemModel";
 
 export class ItemList {
-  constructor(
-    public items: Item[] = [],
-    public unpackedItemsFilter: string = "",
-    public packedItemsFilter: string = ""
-  ) {
+  public unpackedItemsFilter: string = "";
+  public packedItemsFilter: string = "";
+
+  constructor(public items: Item[] = []) {
     makeAutoObservable(this);
   }
 
