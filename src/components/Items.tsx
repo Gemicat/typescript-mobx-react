@@ -1,26 +1,18 @@
-import * as React from "react";
 import { observer } from "mobx-react-lite";
-import SingleItem from "./SingleItem";
-import Filter from "./Filter";
+import React from "react";
 import { Item } from "../store/ItemModel";
+import SingleItem from "./SingleItem";
 
 interface Props {
-  title: string;
   items: Item[];
 }
 
-const Items: React.FC<Props> = ({ title, items }) => {
+export const Items: React.FC<Props> = observer(({ items }: Props) => {
   return (
-    <section className="Items">
-      <h2>
-        {title} ({items.length})
-      </h2>
-      <Filter searchTerm={""} onChange={() => {}} />
+    <div>
       {items.map((item) => (
         <SingleItem key={item.id} item={item} />
       ))}
-    </section>
+    </div>
   );
-};
-
-export default observer(Items);
+});

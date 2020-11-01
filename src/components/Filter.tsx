@@ -2,17 +2,14 @@ import * as React from "react";
 
 interface Props {
   searchTerm: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (value: string) => void;
 }
 
-const Filter: React.FC<Props> = ({ searchTerm, onChange }) => {
-  const handleChange = React.useCallback(
-    (event) => {
-      const value = event.target.value;
-      onChange(value);
-    },
-    [onChange]
-  );
+const Filter: React.FC<Props> = ({ searchTerm, onChange }: Props) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    onChange(value);
+  };
 
   return (
     <input

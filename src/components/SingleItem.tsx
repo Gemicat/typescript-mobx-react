@@ -1,3 +1,4 @@
+import { observer } from "mobx-react-lite";
 import * as React from "react";
 import { Item } from "../store/ItemModel";
 
@@ -5,7 +6,7 @@ interface Props {
   item: Item;
 }
 
-const SingleItem: React.FC<Props> = ({ item }) => {
+const SingleItem: React.FC<Props> = observer(({ item }: Props) => {
   return (
     <article className="Item">
       <label htmlFor={item.id}>
@@ -22,6 +23,6 @@ const SingleItem: React.FC<Props> = ({ item }) => {
       </button>
     </article>
   );
-};
+});
 
 export default SingleItem;

@@ -17,15 +17,18 @@ const NewItem: React.FC = () => {
   };
 
   return (
-    <form className="NewItem" onSubmit={handleSubmit}>
-      <input
-        className="NewItem-input"
-        type="text"
-        value={value}
-        onChange={handleChange}
-      />
-      <input className="NewItem-submit button" type="submit" />
-    </form>
+    <div>
+      <h2>Add Item</h2>
+      <form className="NewItem" onSubmit={handleSubmit}>
+        <input
+          className="NewItem-input"
+          type="text"
+          value={value}
+          onChange={handleChange}
+        />
+        <input className="NewItem-submit button" type="submit" />
+      </form>
+    </div>
   );
 };
 
