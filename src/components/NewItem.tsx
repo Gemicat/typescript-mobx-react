@@ -1,10 +1,9 @@
-import { observer } from "mobx-react-lite";
 import * as React from "react";
 import { StoreContext } from "../store";
 
 const NewItem: React.FC = () => {
   const [value, setValue] = React.useState("");
-  const itemList = React.useContext(StoreContext);
+  const { itemList } = React.useContext(StoreContext);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setValue(value);
@@ -30,4 +29,4 @@ const NewItem: React.FC = () => {
   );
 };
 
-export default observer(NewItem);
+export default NewItem;

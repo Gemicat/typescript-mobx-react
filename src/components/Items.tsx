@@ -1,4 +1,5 @@
 import * as React from "react";
+import { observer } from "mobx-react-lite";
 import SingleItem from "./SingleItem";
 import Filter from "./Filter";
 import { Item } from "../store/ItemModel";
@@ -22,4 +23,4 @@ const Items: React.FC<Props> = ({ title, items }) => {
   );
 };
 
-export default Items;
+export default observer(Items);

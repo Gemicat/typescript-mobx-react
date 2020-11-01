@@ -5,12 +5,12 @@ import Items from "./Items";
 import { StoreContext } from "../store";
 
 const UnpackedItems = observer(() => {
-  const itemList = React.useContext(StoreContext);
+  const { itemList } = React.useContext(StoreContext);
   return <Items title="Unpacked Items" items={itemList.unpackedItems} />;
 });
 
 const PackedItems = observer(() => {
-  const itemList = React.useContext(StoreContext);
+  const { itemList } = React.useContext(StoreContext);
   return <Items title="Packed Items" items={itemList.packedItems} />;
 });
 

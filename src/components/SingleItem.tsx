@@ -6,10 +6,6 @@ interface Props {
 }
 
 const SingleItem: React.FC<Props> = ({ item }) => {
-  console.log(item);
-  const onRemove = () => {
-    item.remove();
-  };
   return (
     <article className="Item">
       <label htmlFor={item.id}>
@@ -21,7 +17,7 @@ const SingleItem: React.FC<Props> = ({ item }) => {
         />
         {item.value}
       </label>
-      <button className="Item-remove" onClick={onRemove}>
+      <button className="Item-remove" onClick={item.remove}>
         Remove
       </button>
     </article>
