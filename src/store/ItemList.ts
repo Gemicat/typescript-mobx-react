@@ -18,13 +18,13 @@ export class ItemList {
   }
 
   get filteredPackedList() {
-    return this.items.filter((item) =>
+    return this.packedItems.filter((item) =>
       item.value.includes(this.packedItemsFilter)
     );
   }
 
   get filteredUnpackedList() {
-    return this.items.filter((item) =>
+    return this.unpackedItems.filter((item) =>
       item.value.includes(this.unpackedItemsFilter)
     );
   }
@@ -43,5 +43,13 @@ export class ItemList {
 
   removeItem = (itemToRemove: Item) => {
     (this.items as IObservableArray<Item>).remove(itemToRemove);
+  };
+
+  unpackAll = () => {
+    (this.items as IObservableArray<Item>).forEach((item) => {
+      if (item.packed) {
+        item.toggle();
+      }
+    });
   };
 }
