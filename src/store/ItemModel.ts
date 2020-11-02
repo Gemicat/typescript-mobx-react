@@ -9,6 +9,7 @@ export class Item {
   constructor(public value: string, public list: ItemList) {
     makeAutoObservable(this, {
       id: false,
+      list: false,
     });
   }
 

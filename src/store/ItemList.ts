@@ -4,8 +4,9 @@ import { Item } from "./ItemModel";
 export class ItemList {
   public unpackedItemsFilter: string = "";
   public packedItemsFilter: string = "";
+  public items = ([] as unknown) as IObservableArray<Item>;
 
-  constructor(public items: Item[] = []) {
+  constructor() {
     makeAutoObservable(this);
   }
 
@@ -42,11 +43,11 @@ export class ItemList {
   };
 
   removeItem = (itemToRemove: Item) => {
-    (this.items as IObservableArray<Item>).remove(itemToRemove);
+    this.items.remove(itemToRemove);
   };
 
   unpackAll = () => {
-    (this.items as IObservableArray<Item>).forEach((item) => {
+    this.items.forEach((item) => {
       if (item.packed) {
         item.toggle();
       }
