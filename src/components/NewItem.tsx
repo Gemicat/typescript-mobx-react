@@ -11,9 +11,11 @@ const NewItem: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    itemList.addItem(value);
-    setValue("");
+    const trimmedValue = value.trim();
+    if (trimmedValue) {
+      itemList.addItem(trimmedValue);
+      setValue("");
+    }
   };
 
   return (
