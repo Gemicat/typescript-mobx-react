@@ -26,7 +26,7 @@ export class ItemList {
 
   get filteredUnpackedList() {
     return this.unpackedItems.filter((item) =>
-      item.value.includes(this.unpackedItemsFilter)
+      item.value.toLowerCase().includes(this.unpackedItemsFilter.toLowerCase())
     );
   }
 
